@@ -2,7 +2,7 @@
 
 const noEl = document.querySelector(".number");
 const adviceEl = document.querySelector(".advice");
-const diceEl = document.querySelector(".dice-img");
+const diceEl = document.getElementById("dice");
 
 // functions
 function showAdvice() {
@@ -10,7 +10,6 @@ function showAdvice() {
   let url = "https://api.adviceslip.com/advice";
   fetch(url).then((resp) => {
     resp.json().then((data) => {
-
       // getting data
       let advice = data.slip.advice;
       let number = data.slip.id;
@@ -25,7 +24,13 @@ function showAdvice() {
 // event listneres
 diceEl.addEventListener("click", showAdvice);
 
+// loading animation
 window.addEventListener("load", () => {
   const load = document.querySelector(".spinner");
   load.style.display = "none";
+});
+
+// space button
+adviceEl.addEventListener("keyup", (e) => {
+  if (e.key === "Space") showAdvice();
 });
