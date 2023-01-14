@@ -30,7 +30,3 @@ window.addEventListener("load", () => {
   load.style.display = "none";
 });
 
-// space button
-adviceEl.addEventListener("keyup", (e) => {
-  if (e.key === "Space") showAdvice();
-});
